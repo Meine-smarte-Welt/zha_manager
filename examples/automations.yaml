@@ -1,0 +1,30 @@
+# SHA256 (Inhalt ab Zeile 2, d.h. dieser Datei ohne diese erste Zeile): 382fe01d6e5f2e9869859a62cab88ed93beabf876b733971b31095a8f414d2ca
+- alias: ZHA Manager - Gerät offline
+  triggers:
+    - trigger: event
+      event_type: zha_manager_device_offline
+  actions:
+    - action: notify.notify
+      data:
+        title: Zigbee-Gerät offline
+        message: "{{ trigger.event.data.name }} ist nicht erreichbar."
+
+- alias: ZHA Manager - Batterie niedrig
+  triggers:
+    - trigger: event
+      event_type: zha_manager_battery_low
+  actions:
+    - action: notify.notify
+      data:
+        title: Batterie {{ 'kritisch' if trigger.event.data.state == 'critical' else 'niedrig' }}
+        message: "{{ trigger.event.data.name }}: {{ trigger.event.data.level }} %"
+
+- alias: ZHA Manager - Neues Gerät
+  triggers:
+    - trigger: event
+      event_type: zha_manager_device_joined
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: Neues Zigbee-Gerät
+        message: "{{ trigger.event.data.name }} wurde hinzugefügt."

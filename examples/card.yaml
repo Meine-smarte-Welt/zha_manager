@@ -1,0 +1,13 @@
+# SHA256 (Inhalt ab Zeile 2, d.h. dieser Datei ohne diese erste Zeile): 87fa2c99e97a115d04b3a9f6a807d518c13b9bf452bb71effa0148f0b57cc85e
+type: custom:zha-manager-card
+title: Zigbee (ZHA)
+default_tab: devices
+show_devices: true
+show_battery: true
+show_updates: true
+show_bridge: true
+max_rows: 30
+default_sort: status
+show_stats: true
+show_search: true
+read_only: false

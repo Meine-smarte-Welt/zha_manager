@@ -1,0 +1,16 @@
+# SHA256 (Inhalt ab Zeile 2, d.h. dieser Datei ohne diese erste Zeile): d5cd8e00415144a2012af856b5e8fa94fde299c6a5fc51ed05e76574ec7bc7b6
+refresh:
+  fields:
+    entry_id:
+      required: false
+      example: "01HXXXXXXXXXXXXXXXXXXXXXXX"
+      selector:
+        text:
+
+check_firmware_updates:
+  fields:
+    entry_id:
+      required: false
+      example: "01HXXXXXXXXXXXXXXXXXXXXXXX"
+      selector:
+        text:

@@ -1,0 +1,121 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up ZHA Manager",
+        "description": "ZHA Manager uses your existing ZHA integration. Confirm to set it up.",
+        "data": {
+          "zha_entry_id": "ZHA entry"
+        }
+      },
+      "reconfigure": {
+        "title": "Choose ZHA entry",
+        "description": "Choose which ZHA entry ZHA Manager should manage.",
+        "data": {
+          "zha_entry_id": "ZHA entry"
+        }
+      }
+    },
+    "abort": {
+      "no_zha": "ZHA is not set up. Set up the ZHA integration first.",
+      "already_configured": "This ZHA entry is already managed.",
+      "reconfigure_successful": "Reconfigured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ZHA Manager – Options",
+        "description": "Installed version: {version} · Latest version: {update_info}",
+        "data": {
+          "battery_low": "Threshold “battery low”",
+          "battery_critical": "Threshold “battery critical”",
+          "offline_delay": "Delay until “offline”",
+          "events_enabled": "Send events",
+          "experimental_enabled": "Show experimental features"
+        },
+        "data_description": {
+          "battery_low": "From this value on the battery counts as low.",
+          "battery_critical": "From this value on the battery counts as critical. It must not be above the “low” threshold.",
+          "offline_delay": "Seconds a device must be unreachable before it counts as offline. 0 = immediately when ZHA reports it as unavailable.",
+          "experimental_enabled": "Shows untested features. They can be switched on one by one and are off by default."
+        }
+      },
+      "experimental": {
+        "title": "Experimental features",
+        "description": "These features are untested. They change devices or read internal ZHA data. Only switch on what you want to test.",
+        "data": {
+          "experimental_features": "Active features",
+          "nc_enabled": "Send messages to the Notification Center",
+          "nc_types": "Message types to send"
+        }
+      }
+    },
+    "error": {
+      "critical_above_low": "The “critical” threshold must not be above the “low” threshold."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "devices": {
+        "name": "Devices"
+      },
+      "offline": {
+        "name": "Offline"
+      },
+      "battery_low": {
+        "name": "Battery low"
+      },
+      "battery_critical": {
+        "name": "Battery critical"
+      },
+      "updates": {
+        "name": "Firmware updates"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Reload data",
+      "description": "Reloads devices and states.",
+      "fields": {
+        "entry_id": {
+          "name": "Entry",
+          "description": "Only needed if several entries exist."
+        }
+      }
+    },
+    "check_firmware_updates": {
+      "name": "Check firmware updates",
+      "description": "Asks all ZHA devices for new firmware. Experimental: only when the feature is switched on.",
+      "fields": {
+        "entry_id": {
+          "name": "Entry",
+          "description": "Only needed if several entries exist."
+        }
+      }
+    }
+  },
+  "selector": {
+    "experimental_features": {
+      "options": {
+        "device_rename": "Rename devices",
+        "device_remove": "Remove devices",
+        "permit_join": "Pair new devices",
+        "firmware_update": "Check and install firmware updates",
+        "gateway_details": "Extra data from ZHA (signal, last seen, device type)",
+        "groups_view": "Show groups"
+      }
+    },
+    "nc_types": {
+      "options": {
+        "battery_critical": "Battery critical",
+        "device_offline": "Device offline",
+        "battery_low": "Battery low",
+        "update_available": "Firmware update available",
+        "device_joined": "New device",
+        "device_left": "Device removed"
+      }
+    }
+  }
+}

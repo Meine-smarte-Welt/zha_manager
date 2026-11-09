@@ -1,0 +1,121 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurer ZHA Manager",
+        "description": "ZHA Manager utilise ton intégration ZHA existante. Confirme pour le configurer.",
+        "data": {
+          "zha_entry_id": "Entrée ZHA"
+        }
+      },
+      "reconfigure": {
+        "title": "Choisir l'entrée ZHA",
+        "description": "Choisis quelle entrée ZHA ZHA Manager doit gérer.",
+        "data": {
+          "zha_entry_id": "Entrée ZHA"
+        }
+      }
+    },
+    "abort": {
+      "no_zha": "ZHA n'est pas configuré. Configure d'abord l'intégration ZHA.",
+      "already_configured": "Cette entrée ZHA est déjà gérée.",
+      "reconfigure_successful": "Reconfiguré."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ZHA Manager – Options",
+        "description": "Version installée : {version} · Dernière version : {update_info}",
+        "data": {
+          "battery_low": "Seuil « batterie faible »",
+          "battery_critical": "Seuil « batterie critique »",
+          "offline_delay": "Délai avant « hors ligne »",
+          "events_enabled": "Envoyer les événements",
+          "experimental_enabled": "Afficher les fonctions expérimentales"
+        },
+        "data_description": {
+          "battery_low": "À partir de cette valeur, la batterie est considérée comme faible.",
+          "battery_critical": "À partir de cette valeur, la batterie est critique. Elle ne doit pas dépasser le seuil « faible ».",
+          "offline_delay": "Secondes pendant lesquelles un appareil doit être injoignable avant d'être considéré hors ligne. 0 = immédiatement quand ZHA le signale indisponible.",
+          "experimental_enabled": "Affiche les fonctions non testées. Elles s'activent une par une et sont désactivées par défaut."
+        }
+      },
+      "experimental": {
+        "title": "Fonctions expérimentales",
+        "description": "Ces fonctions ne sont pas testées. Elles modifient des appareils ou lisent des données internes de ZHA. N'active que ce que tu veux tester.",
+        "data": {
+          "experimental_features": "Fonctions actives",
+          "nc_enabled": "Envoyer les messages au Notification Center",
+          "nc_types": "Types de messages envoyés"
+        }
+      }
+    },
+    "error": {
+      "critical_above_low": "Le seuil « critique » ne doit pas dépasser le seuil « faible »."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "devices": {
+        "name": "Appareils"
+      },
+      "offline": {
+        "name": "Hors ligne"
+      },
+      "battery_low": {
+        "name": "Batterie faible"
+      },
+      "battery_critical": {
+        "name": "Batterie critique"
+      },
+      "updates": {
+        "name": "Mises à jour du firmware"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Relire les données",
+      "description": "Relit les appareils et les états.",
+      "fields": {
+        "entry_id": {
+          "name": "Entrée",
+          "description": "Nécessaire uniquement s'il existe plusieurs entrées."
+        }
+      }
+    },
+    "check_firmware_updates": {
+      "name": "Rechercher les mises à jour du firmware",
+      "description": "Demande un nouveau firmware à tous les appareils ZHA. Expérimental : uniquement si la fonction est activée.",
+      "fields": {
+        "entry_id": {
+          "name": "Entrée",
+          "description": "Nécessaire uniquement s'il existe plusieurs entrées."
+        }
+      }
+    }
+  },
+  "selector": {
+    "experimental_features": {
+      "options": {
+        "device_rename": "Renommer les appareils",
+        "device_remove": "Supprimer des appareils",
+        "permit_join": "Appairer de nouveaux appareils",
+        "firmware_update": "Rechercher et installer les mises à jour du firmware",
+        "gateway_details": "Données supplémentaires de ZHA (signal, dernière activité, type d'appareil)",
+        "groups_view": "Afficher les groupes"
+      }
+    },
+    "nc_types": {
+      "options": {
+        "battery_critical": "Batterie critique",
+        "device_offline": "Appareil hors ligne",
+        "battery_low": "Batterie faible",
+        "update_available": "Mise à jour du firmware disponible",
+        "device_joined": "Nouvel appareil",
+        "device_left": "Appareil supprimé"
+      }
+    }
+  }
+}

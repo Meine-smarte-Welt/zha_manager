@@ -1,0 +1,121 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurar ZHA Manager",
+        "description": "ZHA Manager usa tu integración ZHA existente. Confirma para configurarlo.",
+        "data": {
+          "zha_entry_id": "Entrada de ZHA"
+        }
+      },
+      "reconfigure": {
+        "title": "Elegir entrada de ZHA",
+        "description": "Elige qué entrada de ZHA debe gestionar ZHA Manager.",
+        "data": {
+          "zha_entry_id": "Entrada de ZHA"
+        }
+      }
+    },
+    "abort": {
+      "no_zha": "ZHA no está configurado. Configura primero la integración ZHA.",
+      "already_configured": "Esta entrada de ZHA ya está gestionada.",
+      "reconfigure_successful": "Reconfigurado."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ZHA Manager – Opciones",
+        "description": "Versión instalada: {version} · Última versión: {update_info}",
+        "data": {
+          "battery_low": "Umbral «batería baja»",
+          "battery_critical": "Umbral «batería crítica»",
+          "offline_delay": "Retraso hasta «sin conexión»",
+          "events_enabled": "Enviar eventos",
+          "experimental_enabled": "Mostrar funciones experimentales"
+        },
+        "data_description": {
+          "battery_low": "A partir de este valor la batería se considera baja.",
+          "battery_critical": "A partir de este valor la batería es crítica. No puede superar el umbral «baja».",
+          "offline_delay": "Segundos que un dispositivo debe estar inaccesible antes de considerarse sin conexión. 0 = de inmediato cuando ZHA lo indica como no disponible.",
+          "experimental_enabled": "Muestra funciones sin probar. Se activan una a una y están desactivadas por defecto."
+        }
+      },
+      "experimental": {
+        "title": "Funciones experimentales",
+        "description": "Estas funciones no están probadas. Modifican dispositivos o leen datos internos de ZHA. Activa solo lo que quieras probar.",
+        "data": {
+          "experimental_features": "Funciones activas",
+          "nc_enabled": "Enviar mensajes al Notification Center",
+          "nc_types": "Tipos de mensaje enviados"
+        }
+      }
+    },
+    "error": {
+      "critical_above_low": "El umbral «crítica» no puede superar el umbral «baja»."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "devices": {
+        "name": "Dispositivos"
+      },
+      "offline": {
+        "name": "Sin conexión"
+      },
+      "battery_low": {
+        "name": "Batería baja"
+      },
+      "battery_critical": {
+        "name": "Batería crítica"
+      },
+      "updates": {
+        "name": "Actualizaciones de firmware"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Releer datos",
+      "description": "Vuelve a leer dispositivos y estados.",
+      "fields": {
+        "entry_id": {
+          "name": "Entrada",
+          "description": "Solo necesario si existen varias entradas."
+        }
+      }
+    },
+    "check_firmware_updates": {
+      "name": "Buscar actualizaciones de firmware",
+      "description": "Pregunta a todos los dispositivos ZHA por firmware nuevo. Experimental: solo si la función está activada.",
+      "fields": {
+        "entry_id": {
+          "name": "Entrada",
+          "description": "Solo necesario si existen varias entradas."
+        }
+      }
+    }
+  },
+  "selector": {
+    "experimental_features": {
+      "options": {
+        "device_rename": "Renombrar dispositivos",
+        "device_remove": "Eliminar dispositivos",
+        "permit_join": "Emparejar dispositivos nuevos",
+        "firmware_update": "Buscar e instalar actualizaciones de firmware",
+        "gateway_details": "Datos adicionales de ZHA (señal, visto por última vez, tipo de dispositivo)",
+        "groups_view": "Mostrar grupos"
+      }
+    },
+    "nc_types": {
+      "options": {
+        "battery_critical": "Batería crítica",
+        "device_offline": "Dispositivo sin conexión",
+        "battery_low": "Batería baja",
+        "update_available": "Actualización de firmware disponible",
+        "device_joined": "Dispositivo nuevo",
+        "device_left": "Dispositivo eliminado"
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "ZHA Manager instellen",
+        "description": "ZHA Manager gebruikt je bestaande ZHA-integratie. Bevestig om het in te stellen.",
+        "data": {
+          "zha_entry_id": "ZHA-item"
+        }
+      },
+      "reconfigure": {
+        "title": "ZHA-item kiezen",
+        "description": "Kies welk ZHA-item ZHA Manager moet beheren.",
+        "data": {
+          "zha_entry_id": "ZHA-item"
+        }
+      }
+    },
+    "abort": {
+      "no_zha": "ZHA is niet ingesteld. Stel eerst de ZHA-integratie in.",
+      "already_configured": "Dit ZHA-item wordt al beheerd.",
+      "reconfigure_successful": "Opnieuw geconfigureerd."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ZHA Manager – Opties",
+        "description": "Geïnstalleerde versie: {version} · Nieuwste versie: {update_info}",
+        "data": {
+          "battery_low": "Drempel “batterij laag”",
+          "battery_critical": "Drempel “batterij kritiek”",
+          "offline_delay": "Vertraging tot “offline”",
+          "events_enabled": "Gebeurtenissen verzenden",
+          "experimental_enabled": "Experimentele functies tonen"
+        },
+        "data_description": {
+          "battery_low": "Vanaf deze waarde geldt de batterij als laag.",
+          "battery_critical": "Vanaf deze waarde geldt de batterij als kritiek. Hij mag niet boven de drempel “laag” liggen.",
+          "offline_delay": "Seconden dat een apparaat onbereikbaar moet zijn voordat het als offline geldt. 0 = direct als ZHA het als niet beschikbaar meldt.",
+          "experimental_enabled": "Toont niet-geteste functies. Ze zijn afzonderlijk in te schakelen en staan standaard uit."
+        }
+      },
+      "experimental": {
+        "title": "Experimentele functies",
+        "description": "Deze functies zijn niet getest. Ze wijzigen apparaten of lezen interne ZHA-gegevens. Schakel alleen in wat je wilt testen.",
+        "data": {
+          "experimental_features": "Actieve functies",
+          "nc_enabled": "Meldingen naar het Notification Center sturen",
+          "nc_types": "Te verzenden meldingstypen"
+        }
+      }
+    },
+    "error": {
+      "critical_above_low": "De drempel “kritiek” mag niet boven de drempel “laag” liggen."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "devices": {
+        "name": "Apparaten"
+      },
+      "offline": {
+        "name": "Offline"
+      },
+      "battery_low": {
+        "name": "Batterij laag"
+      },
+      "battery_critical": {
+        "name": "Batterij kritiek"
+      },
+      "updates": {
+        "name": "Firmware-updates"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Opnieuw inlezen",
+      "description": "Leest apparaten en statussen opnieuw in.",
+      "fields": {
+        "entry_id": {
+          "name": "Item",
+          "description": "Alleen nodig als er meerdere items zijn."
+        }
+      }
+    },
+    "check_firmware_updates": {
+      "name": "Firmware-updates zoeken",
+      "description": "Vraagt alle ZHA-apparaten naar nieuwe firmware. Experimenteel: alleen als de functie is ingeschakeld.",
+      "fields": {
+        "entry_id": {
+          "name": "Item",
+          "description": "Alleen nodig als er meerdere items zijn."
+        }
+      }
+    }
+  },
+  "selector": {
+    "experimental_features": {
+      "options": {
+        "device_rename": "Apparaten hernoemen",
+        "device_remove": "Apparaten verwijderen",
+        "permit_join": "Nieuwe apparaten koppelen",
+        "firmware_update": "Firmware-updates zoeken en installeren",
+        "gateway_details": "Extra gegevens uit ZHA (signaal, laatst gezien, apparaattype)",
+        "groups_view": "Groepen tonen"
+      }
+    },
+    "nc_types": {
+      "options": {
+        "battery_critical": "Batterij kritiek",
+        "device_offline": "Apparaat offline",
+        "battery_low": "Batterij laag",
+        "update_available": "Firmware-update beschikbaar",
+        "device_joined": "Nieuw apparaat",
+        "device_left": "Apparaat verwijderd"
+      }
+    }
+  }
+}

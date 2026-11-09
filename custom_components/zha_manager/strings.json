@@ -1,0 +1,121 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "ZHA Manager einrichten",
+        "description": "Der ZHA Manager nutzt deine bestehende ZHA-Integration. Bestätige, um ihn einzurichten.",
+        "data": {
+          "zha_entry_id": "ZHA-Eintrag"
+        }
+      },
+      "reconfigure": {
+        "title": "ZHA-Eintrag wählen",
+        "description": "Wähle, welchen ZHA-Eintrag der ZHA Manager verwalten soll.",
+        "data": {
+          "zha_entry_id": "ZHA-Eintrag"
+        }
+      }
+    },
+    "abort": {
+      "no_zha": "ZHA ist nicht eingerichtet. Richte zuerst die ZHA-Integration ein.",
+      "already_configured": "Dieser ZHA-Eintrag wird schon verwaltet.",
+      "reconfigure_successful": "Neu konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ZHA Manager – Optionen",
+        "description": "Installierte Version: {version} · Neueste Version: {update_info}",
+        "data": {
+          "battery_low": "Schwelle „Batterie niedrig“",
+          "battery_critical": "Schwelle „Batterie kritisch“",
+          "offline_delay": "Verzögerung bis „offline“",
+          "events_enabled": "Ereignisse senden",
+          "experimental_enabled": "Experimentelle Funktionen anzeigen"
+        },
+        "data_description": {
+          "battery_low": "Ab diesem Wert gilt die Batterie als niedrig.",
+          "battery_critical": "Ab diesem Wert gilt die Batterie als kritisch. Er darf nicht über der Schwelle „niedrig“ liegen.",
+          "offline_delay": "Sekunden, die ein Gerät nicht erreichbar sein muss, bevor es als offline gilt. 0 = sofort, wenn ZHA es als nicht erreichbar meldet.",
+          "experimental_enabled": "Zeigt ungeprüfte Funktionen. Sie sind einzeln zuschaltbar und standardmäßig aus."
+        }
+      },
+      "experimental": {
+        "title": "Experimentelle Funktionen",
+        "description": "Diese Funktionen sind ungeprüft. Sie verändern Geräte oder lesen interne ZHA-Daten. Schalte nur ein, was du testen willst.",
+        "data": {
+          "experimental_features": "Aktive Funktionen",
+          "nc_enabled": "Meldungen an das Notification Center senden",
+          "nc_types": "Gesendete Meldungsarten"
+        }
+      }
+    },
+    "error": {
+      "critical_above_low": "Die Schwelle „kritisch“ darf nicht über der Schwelle „niedrig“ liegen."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "devices": {
+        "name": "Geräte"
+      },
+      "offline": {
+        "name": "Offline"
+      },
+      "battery_low": {
+        "name": "Batterie niedrig"
+      },
+      "battery_critical": {
+        "name": "Batterie kritisch"
+      },
+      "updates": {
+        "name": "Firmware-Updates"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Neu einlesen",
+      "description": "Liest Geräte und Zustände neu ein.",
+      "fields": {
+        "entry_id": {
+          "name": "Eintrag",
+          "description": "Nur nötig, wenn mehrere Einträge existieren."
+        }
+      }
+    },
+    "check_firmware_updates": {
+      "name": "Firmware-Updates suchen",
+      "description": "Fragt bei allen ZHA-Geräten nach neuer Firmware. Experimentell: nur wenn die Funktion eingeschaltet ist.",
+      "fields": {
+        "entry_id": {
+          "name": "Eintrag",
+          "description": "Nur nötig, wenn mehrere Einträge existieren."
+        }
+      }
+    }
+  },
+  "selector": {
+    "experimental_features": {
+      "options": {
+        "device_rename": "Geräte umbenennen",
+        "device_remove": "Geräte entfernen",
+        "permit_join": "Neue Geräte anlernen (Pairing)",
+        "firmware_update": "Firmware-Updates suchen und installieren",
+        "gateway_details": "Zusatzdaten aus ZHA (Signal, zuletzt gesehen, Gerätetyp)",
+        "groups_view": "Gruppen anzeigen"
+      }
+    },
+    "nc_types": {
+      "options": {
+        "battery_critical": "Batterie kritisch",
+        "device_offline": "Gerät offline",
+        "battery_low": "Batterie niedrig",
+        "update_available": "Firmware-Update verfügbar",
+        "device_joined": "Neues Gerät",
+        "device_left": "Gerät entfernt"
+      }
+    }
+  }
+}

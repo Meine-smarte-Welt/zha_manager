@@ -1,0 +1,15 @@
+{
+  "entity": {
+    "sensor": {
+      "devices": {"default": "mdi:zigbee"},
+      "offline": {"default": "mdi:lan-disconnect"},
+      "battery_low": {"default": "mdi:battery-30"},
+      "battery_critical": {"default": "mdi:battery-alert"},
+      "updates": {"default": "mdi:update"}
+    }
+  },
+  "services": {
+    "refresh": {"service": "mdi:refresh"},
+    "check_firmware_updates": {"service": "mdi:update"}
+  }
+}
